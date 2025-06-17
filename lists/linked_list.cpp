@@ -100,6 +100,20 @@ public:
 
     }
 
+    void reverseByIteration(){ //reverses linked list by iterating
+        Node *prev, *current, *next;
+        current = pHead;
+        prev = nullptr;
+
+        while(current != nullptr){
+            next = current->getpNext();
+            current->setpNext(prev);
+            prev = current;
+            current = next;
+        }
+        pHead = prev;
+    }
+
     void displayList(){
         Node* temp = pHead;
         while (temp != nullptr)
@@ -142,6 +156,8 @@ int main(int argc, char const *argv[])
     list.deleteByPosition(1);       //40 - 10 - 50 - 20
     list.displayList();
     list.deleteByPosition(3);       //40 - 10 - 20
+    list.displayList();
+    list.reverseByIteration();
 
 
     cout << "Linked List: ";
